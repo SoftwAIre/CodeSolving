@@ -7,247 +7,251 @@ When you're ready, delete this note and make the vault your own.
 - ### Time complexity (Big O) cheat sheet
     
     - ![](https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-data-structures-and-algorithms/713/interviews-and-tools/Figures/DSA/Chapter_11/big_o.png "big O chart")
-    - {{[[TODO]]}} Complexity of common operations split by...
-        - {{[[TODO]]}} data structure/algorithms...
-            - {{[[TODO]]}} **Arrays (dynamic array / list)**
-                - {{[[TODO]]}} Given ,
-                    - {{[[TODO]]}} Add or remove element at the end: 
+    - Complexity of common operations split by...
+        - ⬜️ data structure/algorithms...
+            - ⬜️ **Arrays (dynamic array / list)**
+                - ⬜️ Given ,
+                    - ⬜️ Add or remove element at the end: 
                         - ❤️ O(1) [amortized](https://stackoverflow.com/questions/33044883/why-is-the-time-complexity-of-pythons-list-append-method-o1)
-                            - {{[[TODO]]}} "It's amortized O(1) time complexity, not literally O(1)"
-                                - {{[[DONE]]}} Let's say the list reserved size is 8 elements and it doubles in size when space runs out.
-                                - {{[[TODO]]}} You want to push 50 elements.
-                                - {{[[TODO]]}} The first 8 elements push in O(1).
-                                - {{[[DONE]]}} The ninth triggers reallocation and 8 copies, followed by an O(1) push.
-                                - {{[[DONE]]}} The next 7 push in O(1).
-                                - {{[[DONE]]}} The seventeenth triggers reallocation and 16 copies, followed by an O(1) push.
-                                - {{[[DONE]]}} The next 15 push in O(1).
-                                - {{[[TODO]]}} The thirty-third triggers reallocation and 32 copies, followed by an O(1) push.
-                                - {{[[DONE]]}} The next 31 push in O(1).
-                                - {{[[TODO]]}} This continues as the size of list is doubled again at pushing the 65th, 129th, 257th element, etc..
-                                - {{[[TODO]]}} So all of the pushes have O(1) complexity, we had 64 copies at O(1), and 3 reallocations at O(n), with n = 8, 16, and 32.
-                                - {{[[TODO]]}} Note that this is a geometric series and asymptotically equals O(n) with n = the final size of the list.
-                                - {{[[TODO]]}} That means the whole operation of pushing n objects onto the list is O(n).
+                            - ⬜️ "It's amortized O(1) time complexity, not literally O(1)"
+                                - ✅ Let's say the list reserved size is 8 elements and it doubles in size when space runs out.
+                                - ⬜️ You want to push 50 elements.
+                                - ⬜️ The first 8 elements push in O(1).
+                                - ✅ The ninth triggers reallocation and 8 copies, followed by an O(1) push.
+                                - ✅ The next 7 push in O(1).
+                                - ✅ The seventeenth triggers reallocation and 16 copies, followed by an O(1) push.
+                                - ✅ The next 15 push in O(1).
+                                - ⬜️ The thirty-third triggers reallocation and 32 copies, followed by an O(1) push.
+                                - ✅ The next 31 push in O(1).
+                                - ⬜️ This continues as the size of list is doubled again at pushing the 65th, 129th, 257th element, etc..
+                                - ⬜️ So all of the pushes have O(1) complexity, we had 64 copies at O(1), and 3 reallocations at O(n), with n = 8, 16, and 32.
+                                - ⬜️ Note that this is a geometric series and asymptotically equals O(n) with n = the final size of the list.
+                                - ⬜️ That means the whole operation of pushing n objects onto the list is O(n).
                                 - ❤️ If we _amortize_ that per element, it's O(n)/n = O(1).
-                            - {{[[TODO]]}} What does amortized mean?
-                                - {{[[TODO]]}} To pay off a debt gradually over a set period with regular payments that cover both principal and interest, or to gradually write off the cost of an intangible asset by expensing it over its useful life
-                    - {{[[DONE]]}} Add or remove element from arbitrary index: 
+                            - ⬜️ What does amortized mean?
+                                - ⬜️ To pay off a debt gradually over a set period with regular payments that cover both principal and interest, or to gradually write off the cost of an intangible asset by expensing it over its useful life
+                    - ✅ Add or remove element from arbitrary index: 
                         - O(n)
-                    - {{[[DONE]]}} Access or modify element at arbitrary index: 
+                    - ✅ Access or modify element at arbitrary index: 
                         - O(1)
-                    - {{[[DONE]]}} Check if element exists: 
+                    - ✅ Check if element exists: 
                         - O(n)
-                    - {{[[TODO]]}} Two pointers: 
+                    - ⬜️ Two pointers: 
                         - $$O(n⋅k)$$, where $$k$$ is the work done at each iteration, includes sliding window
-                    - {{[[TODO]]}} Building a prefix sum: 
+                    - ⬜️ Building a prefix sum: 
                         - O(n)
-                    - {{[[TODO]]}} Finding the sum of a subarray given a prefix sum: 
+                    - ⬜️ Finding the sum of a subarray given a prefix sum: 
                         - O(1)
-            - {{[[TODO]]}} **Strings (immutable)**
-                - {{[[TODO]]}} Given ,
-                    - {{[[TODO]]}} Add or remove character:
+            - ⬜️ **Strings (immutable)**
+                - ⬜️ Given ,
+                    - ⬜️ Add or remove character:
                         - O(n)
-                    - {{[[DONE]]}} Access element at arbitrary index: 
+                    - ✅ Access element at arbitrary index: 
                         - O(1)
-                    - {{[[DONE]]}} Concatenation between two strings: 
-                        - {{[[TODO]]}} $$O(n+m)$$, where $$m$$ is the length of the other string
-                    - {{[[DONE]]}} Create substring: 
+                    - ✅ Concatenation between two strings: 
+                        - ⬜️ $$O(n+m)$$, where $$m$$ is the length of the other string
+                    - ✅ Create substring: 
                         - $$O(m)$$, where $$m$$ is the length of the substring
-                    - {{[[TODO]]}} Two pointers: 
-                        - $$O(n⋅k)$$, where $$k$$ is the work done at each iteration, includes sliding window
-                    - {{[[DONE]]}} Building a string from joining an array, stringbuilder, etc:
-                        - $$O(n)$$
-            - {{[[TODO]]}} **Linked Lists**
-                - {{[[TODO]]}} Given $$n$$ as the number of nodes in the linked list,
-                    - {{[[TODO]]}} Add or remove element given pointer before add/removal location: $$O(1)$$
-                    - {{[[TODO]]}} Add or remove element given pointer at add/removal location: 
-                        - $$O(1)$$ if doubly linked
-                    - {{[[TODO]]}} Add or remove element at arbitrary position without pointer: 
-                        - $$O(n)$$
-                    - {{[[TODO]]}} Access element at arbitrary position without pointer: 
-                        - $$O(n)$$
-                    - {{[[TODO]]}} Check if element exists: 
-                        - $$O(n)$$
-                    - {{[[TODO]]}} Reverse between position  and : 
-                        - $$O(j−i)$$
-                    - {{[[TODO]]}} Detect a cycle: 
-                        - $$O(n)$$ using fast-slow pointers or hash map
-            - {{[[TODO]]}} **Hash table/dictionary**
-                - {{[[TODO]]}} Given ,
-                    - {{[[TODO]]}} Add or remove key-value pair: 
-                        - $$O(1)$$
-                    - {{[[TODO]]}} Check if key exists: 
-                        - $$O(1)$$
-                    - {{[[TODO]]}} Check if value exists: 
-                        - $$O(n)$$
-                    - {{[[TODO]]}} Access or modify value associated with key: 
-                        - $$O(1)$$
-                    - {{[[TODO]]}} Iterate over all keys, values, or both: 
-                        - $$O(n)$$
-                - {{[[TODO]]}} Note:
-                    - {{[[TODO]]}} the $$O(1)$$ operations are constant relative to .
-                    - {{[[TODO]]}} In reality, the hashing algorithm might be expensive.
-                    - {{[[TODO]]}} For example, if your keys are strings, then it will cost $$O(m)$$ where $$m$$ is the length of the string.
-                    - {{[[TODO]]}} The operations only take constant time relative to the size of the hash map.
-            - {{[[TODO]]}} **Set**
-                - {{[[TODO]]}} Given ,
-                    - {{[[TODO]]}} Add or remove element: 
-                        - {{[[TODO]]}} $$O(1)$$
-                    - {{[[TODO]]}} Check if element exists: 
-                        - {{[[TODO]]}} $$O(1)$$
-                - {{[[TODO]]}} The above note applies here as well.
-            - {{[[TODO]]}} **Stack**
-                - {{[[TODO]]}} Stack operations are dependent on their implementation.
-                    - {{[[TODO]]}} A stack is only required to support pop and push.
-                        - {{[[TODO]]}} If implemented with a dynamic array:
-                            - {{[[TODO]]}} Given ,
-                                - {{[[TODO]]}} Push element: O(1)_O_(1)
-                                - {{[[TODO]]}} Pop element: O(1)_O_(1)
-                                - {{[[TODO]]}} Peek (see element at top of stack): O(1)_O_(1)
-                                - {{[[TODO]]}} Access or modify element at arbitrary index: O(1)_O_(1)
-                                - {{[[TODO]]}} Check if element exists: O(n)_O_(_n_)
-            - {{[[TODO]]}} **Queue**
-                - {{[[TODO]]}} Queue operations are dependent on their implementation. A queue is only required to support dequeue and enqueue. If implemented with a doubly linked list:
-                    - {{[[TODO]]}} Given ,
-                        - {{[[TODO]]}} Enqueue element: 
-                            - {{[[TODO]]}} $$O(1)$$
-                        - {{[[TODO]]}} Dequeue element: 
-                            - {{[[TODO]]}} $$O(1)$$
-                        - {{[[TODO]]}} Peek (see element at front of queue): 
-                            - {{[[TODO]]}} $$O(1)$$
-                        - {{[[TODO]]}} Access or modify element at arbitrary index: 
-                            - {{[[TODO]]}} $$O(n)$$
-                        - {{[[TODO]]}} Check if element exists: 
-                            - {{[[TODO]]}} $$O(n)$$
-                    - {{[[TODO]]}} **Note:**
-                        - {{[[TODO]]}} most programming languages implement queues in a more sophisticated manner than a simple doubly linked list.
-                        - {{[[TODO]]}} Depending on implementation, accessing elements by index may be faster than $$O(n)$$, or $$O(n)$$ but with a significant constant divisor.
-            - {{[[TODO]]}} **Binary tree problems (DFS/BFS)**
-                - {{[[TODO]]}} Given n as the number of nodes in the tree,
-                - {{[[TODO]]}} Most algorithms will run in $$O(n⋅k)$$ time, where $$k$$ is the work done at each node, usually $$O(1)$$.
-                    - {{[[TODO]]}} This is just a general rule and not always the case.
-                    - {{[[TODO]]}} We are assuming here that BFS is implemented with an efficient queue.
-            - {{[[TODO]]}} **Binary search tree**
-                - {{[[TODO]]}} Given $$n$$ as the number of nodes in the tree,
-                    - {{[[TODO]]}} Add or remove element: 
-                        - {{[[TODO]]}} $$O(n)$$ worst case, $$O(log⁡n)$$ average case
-                    - {{[[TODO]]}} Check if element exists: $$O(n)$$ worst case, $$O(log⁡n)$$ average case.
-                - {{[[TODO]]}} The average case is when the tree is well balanced - each depth is close to full.
-                    - {{[[TODO]]}} The worst case is when the tree is just a straight line.
-            - {{[[TODO]]}} **Heap/Priority Queue**
-                - {{[[TODO]]}} Given  and talking about min heaps,
-                    - {{[[TODO]]}} Add an element:
+                    - ⬜️ Two pointers: 
+                        - $O(n⋅k)$, where $k$ is the work done at each iteration, includes sliding window
+                    - ✅ Building a string from joining an array, stringbuilder, etc:
+                        - $O(n)$
+            - ⬜️ **Linked Lists**
+                - ⬜️ Given $n$ as the number of nodes in the linked list,
+                    - ⬜️ Add or remove element given pointer before add/removal location: 
+	                    - $O(1)$
+                    - ⬜️ Add or remove element given pointer at add/removal location: 
+                        - $O(1)$ if doubly linked
+                    - ⬜️ Add or remove element at arbitrary position without pointer: 
+                        - $O(n)$
+                    - ⬜️ Access element at arbitrary position without pointer: 
+                        - $O(n)$
+                    - ⬜️ Check if element exists: 
+                        - $O(n)$
+                    - ⬜️ Reverse between position  and : 
+                        - $O(j−i)$
+                    - ⬜️ Detect a cycle: 
+                        - $O(n)$ using fast-slow pointers or hash map
+            - ⬜️ **Hash table/dictionary**
+                - ⬜️ Given ,
+                    - ⬜️ Add or remove key-value pair: 
+                        - $O(1)$
+                    - ⬜️ Check if key exists: 
+                        - $O(1)$
+                    - ⬜️ Check if value exists: 
+                        - $O(n)$
+                    - ⬜️ Access or modify value associated with key: 
+                        - $O(1)$
+                    - ⬜️ Iterate over all keys, values, or both: 
+                        - $O(n)$
+                - ⬜️ Note:
+                    - ⬜️ the $O(1)$ operations are constant relative to .
+                    - ⬜️ In reality, the hashing algorithm might be expensive.
+                    - ⬜️ For example, if your keys are strings, then it will cost $O(m)$ where $m$ is the length of the string.
+                    - ⬜️ The operations only take constant time relative to the size of the hash map.
+            - ⬜️ **Set**
+                - ⬜️ Given ,
+                    - ⬜️ Add or remove element: 
+                        - ⬜️ $O(1)$
+                    - ⬜️ Check if element exists: 
+                        - ⬜️ $O(1)$
+                - ⬜️ The above note applies here as well.
+            - ⬜️ **Stack**
+                - ⬜️ Stack operations are dependent on their implementation.
+                    - ⬜️ A stack is only required to support pop and push.
+                        - ⬜️ If implemented with a dynamic array:
+                            - ⬜️ Given ,
+                                - ⬜️ Push element:
+	                                - $O(1)$
+                                - ⬜️ Pop element: 
+	                                - $O(1)$
+                                - ⬜️ Peek (see element at top of stack): 
+	                                - $O(1)$
+                                - ⬜️ Access or modify element at arbitrary index: O(1)_O_(1)
+                                - ⬜️ Check if element exists: O(n)_O_(_n_)
+            - ⬜️ **Queue**
+                - ⬜️ Queue operations are dependent on their implementation. A queue is only required to support dequeue and enqueue. If implemented with a doubly linked list:
+                    - ⬜️ Given ,
+                        - ⬜️ Enqueue element: 
+                            - ⬜️ $$O(1)$$
+                        - ⬜️ Dequeue element: 
+                            - ⬜️ $$O(1)$$
+                        - ⬜️ Peek (see element at front of queue): 
+                            - ⬜️ $$O(1)$$
+                        - ⬜️ Access or modify element at arbitrary index: 
+                            - ⬜️ $$O(n)$$
+                        - ⬜️ Check if element exists: 
+                            - ⬜️ $$O(n)$$
+                    - ⬜️ **Note:**
+                        - ⬜️ most programming languages implement queues in a more sophisticated manner than a simple doubly linked list.
+                        - ⬜️ Depending on implementation, accessing elements by index may be faster than $$O(n)$$, or $$O(n)$$ but with a significant constant divisor.
+            - ⬜️ **Binary tree problems (DFS/BFS)**
+                - ⬜️ Given n as the number of nodes in the tree,
+                - ⬜️ Most algorithms will run in $$O(n⋅k)$$ time, where $$k$$ is the work done at each node, usually $$O(1)$$.
+                    - ⬜️ This is just a general rule and not always the case.
+                    - ⬜️ We are assuming here that BFS is implemented with an efficient queue.
+            - ⬜️ **Binary search tree**
+                - ⬜️ Given $$n$$ as the number of nodes in the tree,
+                    - ⬜️ Add or remove element: 
+                        - ⬜️ $$O(n)$$ worst case, $$O(log⁡n)$$ average case
+                    - ⬜️ Check if element exists: $$O(n)$$ worst case, $$O(log⁡n)$$ average case.
+                - ⬜️ The average case is when the tree is well balanced - each depth is close to full.
+                    - ⬜️ The worst case is when the tree is just a straight line.
+            - ⬜️ **Heap/Priority Queue**
+                - ⬜️ Given  and talking about min heaps,
+                    - ⬜️ Add an element:
                         - $$O(log⁡n)$$
-                    - {{[[TODO]]}} Delete the minimum element: 
+                    - ⬜️ Delete the minimum element: 
                         - $$O(log⁡n)$$
-                    - {{[[TODO]]}} Find the minimum element: 
+                    - ⬜️ Find the minimum element: 
                         - $$O(1)$$
-                    - {{[[TODO]]}} Check if element exists: 
+                    - ⬜️ Check if element exists: 
                         - $$O(n)$$
-            - {{[[TODO]]}} **Binary search**
+            - ⬜️ **Binary search**
                 - Binary search runs in $$O(log⁡n)$$ in the worst case, where $$n$$ is the size of your initial search space.
-            - {{[[TODO]]}} **Miscellaneous**
-                - {{[[TODO]]}} Sorting: 
-                    - {{[[TODO]]}} $$O(n⋅log⁡n)$$, where $$n$$ is the size of the data being sorted
-                - {{[[TODO]]}} DFS and BFS on a graph: 
-                    - {{[[TODO]]}} $$O(n⋅k+e)$$, where $$n$$ is the number of nodes, $$e$$ is the number of edges, if each node is handled in $$O(1)$$ other than iterating over edges
-                - {{[[TODO]]}} DFS and BFS space complexity:
-                    - {{[[TODO]]}} typically $$O(n)$$, but if it's in a graph, might be $$O(n+e)$$ to store the graph
-                - {{[[TODO]]}} Dynamic programming time complexity: 
-                    - {{[[TODO]]}} $$O(n⋅k)$$, where $$n$$ is the number of states and $$k$$ is the work done at each state
-                - {{[[TODO]]}} Dynamic programming space complexity: 
-                    - {{[[TODO]]}} $$O(n)$$, where $$n$$ is the number of states
-    - {{[[TODO]]}} Reasonable complexities given input sizes
-        - ### {{[[TODO]]}} Input sizes vs time complexity
+            - ⬜️ **Miscellaneous**
+                - ⬜️ Sorting: 
+                    - ⬜️ $$O(n⋅log⁡n)$$, where $$n$$ is the size of the data being sorted
+                - ⬜️ DFS and BFS on a graph: 
+                    - ⬜️ $$O(n⋅k+e)$$, where $$n$$ is the number of nodes, $$e$$ is the number of edges, if each node is handled in $$O(1)$$ other than iterating over edges
+                - ⬜️ DFS and BFS space complexity:
+                    - ⬜️ typically $$O(n)$$, but if it's in a graph, might be $$O(n+e)$$ to store the graph
+                - ⬜️ Dynamic programming time complexity: 
+                    - ⬜️ $$O(n⋅k)$$, where $$n$$ is the number of states and $$k$$ is the work done at each state
+                - ⬜️ Dynamic programming space complexity: 
+                    - ⬜️ $$O(n)$$, where $$n$$ is the number of states
+    - ⬜️ Reasonable complexities given input sizes
+        - ### ⬜️ Input sizes vs time complexity
             
-            - {{[[TODO]]}} The constraints of a problem can be considered as hints because they indicate an upper bound on what your solution's time complexity should be.
-                - {{[[TODO]]}} Being able to figure out the expected time complexity of a solution given the input size is a valuable skill to have.
-                - {{[[TODO]]}} In all LeetCode problems and most online assessments (OA), you will be given the problem's constraints.
-                - {{[[TODO]]}} Unfortunately, you will usually not be explicitly told the constraints of a problem in an interview, but it's still good for practicing on LeetCode and completing OAs.
-                - {{[[TODO]]}} Still, in an interview, it usually doesn't hurt to ask about the expected input sizes.
-            - {{[[TODO]]}} **n <= 10**
-                - {{[[TODO]]}} The expected time complexity likely has a factorial or an exponential with a base larger than $$2 - O(n^2⋅n!)$$ or $$O(4^n)$$ for example.
-                - {{[[TODO]]}} You should think about backtracking or any brute-force-esque recursive algorithm.  is extremely small and usually **any** algorithm that correctly finds the answer will be fast enough.
-            - {{[[TODO]]}} **10 < n <= 20**
-                - {{[[TODO]]}} The expected time complexity likely involves $$O(2^n)$$.
-                    - {{[[TODO]]}} Any higher base or a factorial will be too slow ($$3^20 $$ = ~3.5 billion, and $$20!$$ is much larger).
-                    - {{[[TODO]]}} A $$2^n$$ usually implies that given a collection of elements, you are considering all subsets/subsequences - for each element, there are two choices:
-                        - {{[[TODO]]}} take it or don't take it.
-                - {{[[TODO]]}} Again, this bound is very small, so most algorithms that are correct will probably be fast enough. Consider backtracking and recursion.
-            - {{[[TODO]]}} **20 < n <= 100**
-                - {{[[TODO]]}} At this point, exponentials will be too slow. The upper bound will likely involve O(n3)_O_(_n_3).
-                - {{[[TODO]]}} Problems marked as "easy" on LeetCode usually have this bound, which can be deceiving. There may be solutions that run in O(n)_O_(_n_), but the small bound allows brute force solutions to pass (finding the linear time solution might not be considered as "easy").
-                - {{[[TODO]]}} Consider brute force solutions that involve nested loops. If you come up with a brute force solution, try analyzing the algorithm to find what steps are "slow", and try to improve on those steps using tools like hash maps or heaps.
-            - {{[[TODO]]}} **100 < n <= 1,000**
-                - {{[[TODO]]}} In this range, a quadratic time complexity O(n2)_O_(_n_2) should be sufficient, as long as the constant factor isn't too large.
-                - {{[[TODO]]}} Similar to the previous range, you should consider nested loops. The difference between this range and the previous one is that O(n2)_O_(_n_2) is usually the expected/optimal time complexity in this range, and it might not be possible to improve.
-            - {{[[TODO]]}} **1,000 < n < 100,000**
-                - {{[[TODO]]}} $$n<=105$$ is the most common constraint you will see on LeetCode. In this range, the slowest acceptable **common** time complexity is $$O(n⋅log⁡n)$$, although a linear time approach O(n) is commonly the goal.
-                - {{[[TODO]]}} In this range, ask yourself if sorting the input or using a heap can be helpful. If not, then aim for an O(n) algorithm.
-                    - {{[[TODO]]}} Nested loops that run in $$O(n^2)$$ are unacceptable - you will probably need to make use of a technique learned in this course to simulate a nested loop's behavior in $$O(1)$$ or $$O(log⁡n)$$:
-                        - {{[[TODO]]}} Hash map
-                        - {{[[TODO]]}} A two pointers implementation like sliding window
-                        - {{[[TODO]]}} Monotonic stack
-                        - {{[[TODO]]}} Binary search
-                        - {{[[TODO]]}} Heap
-                        - {{[[TODO]]}} A combination of any of the above
-                - {{[[TODO]]}} If you have an $$O(n)$$ algorithm, the constant factor can be reasonably large (around 40).
+            - ⬜️ The constraints of a problem can be considered as hints because they indicate an upper bound on what your solution's time complexity should be.
+                - ⬜️ Being able to figure out the expected time complexity of a solution given the input size is a valuable skill to have.
+                - ⬜️ In all LeetCode problems and most online assessments (OA), you will be given the problem's constraints.
+                - ⬜️ Unfortunately, you will usually not be explicitly told the constraints of a problem in an interview, but it's still good for practicing on LeetCode and completing OAs.
+                - ⬜️ Still, in an interview, it usually doesn't hurt to ask about the expected input sizes.
+            - ⬜️ **n <= 10**
+                - ⬜️ The expected time complexity likely has a factorial or an exponential with a base larger than $$2 - O(n^2⋅n!)$$ or $$O(4^n)$$ for example.
+                - ⬜️ You should think about backtracking or any brute-force-esque recursive algorithm.  is extremely small and usually **any** algorithm that correctly finds the answer will be fast enough.
+            - ⬜️ **10 < n <= 20**
+                - ⬜️ The expected time complexity likely involves $$O(2^n)$$.
+                    - ⬜️ Any higher base or a factorial will be too slow ($$3^20 $$ = ~3.5 billion, and $$20!$$ is much larger).
+                    - ⬜️ A $$2^n$$ usually implies that given a collection of elements, you are considering all subsets/subsequences - for each element, there are two choices:
+                        - ⬜️ take it or don't take it.
+                - ⬜️ Again, this bound is very small, so most algorithms that are correct will probably be fast enough. Consider backtracking and recursion.
+            - ⬜️ **20 < n <= 100**
+                - ⬜️ At this point, exponentials will be too slow. The upper bound will likely involve O(n3)_O_(_n_3).
+                - ⬜️ Problems marked as "easy" on LeetCode usually have this bound, which can be deceiving. There may be solutions that run in O(n)_O_(_n_), but the small bound allows brute force solutions to pass (finding the linear time solution might not be considered as "easy").
+                - ⬜️ Consider brute force solutions that involve nested loops. If you come up with a brute force solution, try analyzing the algorithm to find what steps are "slow", and try to improve on those steps using tools like hash maps or heaps.
+            - ⬜️ **100 < n <= 1,000**
+                - ⬜️ In this range, a quadratic time complexity O(n2)_O_(_n_2) should be sufficient, as long as the constant factor isn't too large.
+                - ⬜️ Similar to the previous range, you should consider nested loops. The difference between this range and the previous one is that O(n2)_O_(_n_2) is usually the expected/optimal time complexity in this range, and it might not be possible to improve.
+            - ⬜️ **1,000 < n < 100,000**
+                - ⬜️ $$n<=105$$ is the most common constraint you will see on LeetCode. In this range, the slowest acceptable **common** time complexity is $$O(n⋅log⁡n)$$, although a linear time approach O(n) is commonly the goal.
+                - ⬜️ In this range, ask yourself if sorting the input or using a heap can be helpful. If not, then aim for an O(n) algorithm.
+                    - ⬜️ Nested loops that run in $$O(n^2)$$ are unacceptable - you will probably need to make use of a technique learned in this course to simulate a nested loop's behavior in $$O(1)$$ or $$O(log⁡n)$$:
+                        - ⬜️ Hash map
+                        - ⬜️ A two pointers implementation like sliding window
+                        - ⬜️ Monotonic stack
+                        - ⬜️ Binary search
+                        - ⬜️ Heap
+                        - ⬜️ A combination of any of the above
+                - ⬜️ If you have an $$O(n)$$ algorithm, the constant factor can be reasonably large (around 40).
                     - One common theme for string problems involves looping over the characters of the alphabet at each iteration resulting in a time complexity of $$O(26n)$$.
-            - {{[[TODO]]}} **100,000 < n < 1,000,000**
-                - {{[[TODO]]}} $$n<=10^6$$ is a rare constraint, and will likely require a time complexity of $$O(n)$$.
-                    - {{[[TODO]]}} In this range, $$O(n⋅log⁡n)$$ is usually safe as long as it has a small constant factor.
-                    - {{[[TODO]]}} You will very likely need to incorporate a hash map in some way.
-            - {{[[TODO]]}} **1,000,000 < n**
-                - {{[[TODO]]}} With huge inputs, typically in the range of $$10^9$$ or more, the most common acceptable time complexity will be logarithmic $$O(log⁡n)$$ or constant $$O(1)$$.
-                    - {{[[TODO]]}} In these problems, you must either significantly reduce your search space at each iteration (usually binary search) or use clever tricks to find information in constant time (like with math or a clever use of hash maps).
-                        - {{[[TODO]]}} Other time complexities are possible like O(n), but this is very rare and will usually only be seen in very advanced problems.
-    - ### {{[[TODO]]}} Sorting algorithms
+            - ⬜️ **100,000 < n < 1,000,000**
+                - ⬜️ $$n<=10^6$$ is a rare constraint, and will likely require a time complexity of $$O(n)$$.
+                    - ⬜️ In this range, $$O(n⋅log⁡n)$$ is usually safe as long as it has a small constant factor.
+                    - ⬜️ You will very likely need to incorporate a hash map in some way.
+            - ⬜️ **1,000,000 < n**
+                - ⬜️ With huge inputs, typically in the range of $$10^9$$ or more, the most common acceptable time complexity will be logarithmic $$O(log⁡n)$$ or constant $$O(1)$$.
+                    - ⬜️ In these problems, you must either significantly reduce your search space at each iteration (usually binary search) or use clever tricks to find information in constant time (like with math or a clever use of hash maps).
+                        - ⬜️ Other time complexities are possible like O(n), but this is very rare and will usually only be seen in very advanced problems.
+    - ### ⬜️ Sorting algorithms
         
-        - {{[[TODO]]}} All major programming languages have a built-in method for sorting.
-            - {{[[TODO]]}} It is usually correct to assume and say sorting costs $$O(n⋅log⁡n)$$, where $$n$$ is the number of elements being sorted.
-            - {{[[TODO]]}} For completeness, here is a chart that lists many common sorting algorithms and their completeness.
-            - {{[[TODO]]}} The algorithm implemented by a programming language varies; for example, Python uses Timsort but in C++, the specific algorithm is not mandated and varies.
-        - {{[[TODO]]}} ![](https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-data-structures-and-algorithms/713/interviews-and-tools/Figures/DSA/Chapter_11/sorting.png "sorting algorithm complexities") 
-        - {{[[TODO]]}} Definition of a stable sort from [Wikipedia](https://en.wikipedia.org/wiki/Category:Stable_sorts):
-            - {{[[TODO]]}} "Stable sorting algorithms maintain the relative order of records with equal keys (i.e. values). That is, a sorting algorithm is stable if whenever there are two records R and S with the same key and with R appearing before S in the original list, R will appear before S in the sorted list."
-- ### {{[[TODO]]}} General DS/A flowchart (when to use each DS/A)
+        - ⬜️ All major programming languages have a built-in method for sorting.
+            - ⬜️ It is usually correct to assume and say sorting costs $$O(n⋅log⁡n)$$, where $$n$$ is the number of elements being sorted.
+            - ⬜️ For completeness, here is a chart that lists many common sorting algorithms and their completeness.
+            - ⬜️ The algorithm implemented by a programming language varies; for example, Python uses Timsort but in C++, the specific algorithm is not mandated and varies.
+        - ⬜️ ![](https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-data-structures-and-algorithms/713/interviews-and-tools/Figures/DSA/Chapter_11/sorting.png "sorting algorithm complexities") 
+        - ⬜️ Definition of a stable sort from [Wikipedia](https://en.wikipedia.org/wiki/Category:Stable_sorts):
+            - ⬜️ "Stable sorting algorithms maintain the relative order of records with equal keys (i.e. values). That is, a sorting algorithm is stable if whenever there are two records R and S with the same key and with R appearing before S in the original list, R will appear before S in the sorted list."
+- ### ⬜️ General DS/A flowchart (when to use each DS/A)
     
-    - {{[[DONE]]}} Here's a flowchart that can help you figure out which data structure or algorithm should be used.
-        - {{[[DONE]]}} Note that this flowchart is very general as it would be impossible to cover every single scenario.
-    - {{[[TODO]]}} Note that this flowchart only covers methods taught in LICC, and as such more advanced algorithms like Dijkstra's is excluded.
+    - ✅ Here's a flowchart that can help you figure out which data structure or algorithm should be used.
+        - ✅ Note that this flowchart is very general as it would be impossible to cover every single scenario.
+    - ⬜️ Note that this flowchart only covers methods taught in LICC, and as such more advanced algorithms like Dijkstra's is excluded.
         - ![](https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-data-structures-and-algorithms/713/interviews-and-tools/Figures/DSA/Chapter_11/flowchart.png "data structures and algorithm flowchart")
-- ### {{[[TODO]]}} Interview stages cheat sheet
+- ### ⬜️ Interview stages cheat sheet
     
-    - {{[[TODO]]}} The following will be a summary of the "Stages of an interview" article. If you have a remote interview, you can print this condensed version and keep it in front of you during the interview.
-    - {{[[TODO]]}} **Stage 1: Introductions**
-        - {{[[TODO]]}} Have a rehearsed 30-60 second introduction regarding your education, work experience, and interests prepared.
+    - ⬜️ The following will be a summary of the "Stages of an interview" article. If you have a remote interview, you can print this condensed version and keep it in front of you during the interview.
+    - ⬜️ **Stage 1: Introductions**
+        - ⬜️ Have a rehearsed 30-60 second introduction regarding your education, work experience, and interests prepared.
             
-        - {{[[TODO]]}} Smile and speak with confidence.
-        - {{[[TODO]]}} Pay attention when the interviewer talks about themselves and incorporate their work into your questions later.
-    - {{[[TODO]]}} **Stage 2: Problem statement**
-        - {{[[TODO]]}} Paraphrase the problem back to the interviewer after they have read it to you.
-        - {{[[TODO]]}} Ask clarifying questions about the input such as the expected input size, edge cases, and invalid inputs.
-        - {{[[TODO]]}} Quickly walk through an example test case to confirm you understand the problem.
-    - {{[[TODO]]}} **Stage 3: Brainstorming DS&A**
-        - {{[[TODO]]}} Always be thinking out loud.
-        - {{[[TODO]]}} Break the problem down: figure out what you need to do, and think about what data structure or algorithm can accomplish it with a good time complexity.
-        - {{[[TODO]]}} Be receptive to any comments or feedback from the interviewer, they are probably trying to hint you towards the correct solution.
-        - {{[[TODO]]}} Once you have an idea, before coding, explain your idea to the interviewer and make sure they understand and agree that it is a reasonable approach.
-    - {{[[TODO]]}} **Stage 4: Implementation**
-        - {{[[TODO]]}} Explain your decision-making as you implement. When you declare things like sets, explain what the purpose is.
-        - {{[[TODO]]}} Write clean code that conforms to your programming language's conventions.
-        - {{[[TODO]]}} Avoid writing duplicate code - use a helper function or for loop if you are writing similar code multiple times.
-        - {{[[TODO]]}} If you are stuck, don't panic - communicate your concerns with your interviewer.
-        - {{[[TODO]]}} Don't be scared to start with a brute force solution (while acknowledging that it is brute force), then improve it by optimizing the "slow" parts.
-        - {{[[TODO]]}} Keep thinking out loud and talk with your interviewer. It makes it easier for them to give you hints.
-    - {{[[TODO]]}} **Stage 5: Testing & debugging**
-        - {{[[TODO]]}} When walking through test cases, keep track of the variables by writing at the bottom of the file, and continuously update them. Condense trivial parts like creating a prefix sum to save time.
-        - {{[[TODO]]}} If there are errors and the environment supports running code, put print statements in your algorithm and walk through a small test case, comparing the expected value of variables and the actual values.
-        - {{[[TODO]]}} Be vocal and keep talking with your interviewer if you run into any problems.
-    - {{[[TODO]]}} **Stage 6: Explanations and follow-ups**
-        - {{[[TODO]]}} Questions you should be prepared to answer:
-            - {{[[TODO]]}} Time and space complexity, average and worst case.
-            - {{[[TODO]]}} Why did you choose this data structure, algorithm, or logic?
-            - {{[[TODO]]}} Do you think the algorithm could be improved in terms of complexity? If they ask you this, then the answer is _usually_ yes, especially if your algorithm is slower than O(n)_O_(_n_).
-    - {{[[TODO]]}} **Stage 7: Outro**
-        - {{[[TODO]]}} Have questions regarding the company prepared.
-        - {{[[TODO]]}} Be interested, smile, and ask follow-up questions to your interviewer's responses.
+        - ⬜️ Smile and speak with confidence.
+        - ⬜️ Pay attention when the interviewer talks about themselves and incorporate their work into your questions later.
+    - ⬜️ **Stage 2: Problem statement**
+        - ⬜️ Paraphrase the problem back to the interviewer after they have read it to you.
+        - ⬜️ Ask clarifying questions about the input such as the expected input size, edge cases, and invalid inputs.
+        - ⬜️ Quickly walk through an example test case to confirm you understand the problem.
+    - ⬜️ **Stage 3: Brainstorming DS&A**
+        - ⬜️ Always be thinking out loud.
+        - ⬜️ Break the problem down: figure out what you need to do, and think about what data structure or algorithm can accomplish it with a good time complexity.
+        - ⬜️ Be receptive to any comments or feedback from the interviewer, they are probably trying to hint you towards the correct solution.
+        - ⬜️ Once you have an idea, before coding, explain your idea to the interviewer and make sure they understand and agree that it is a reasonable approach.
+    - ⬜️ **Stage 4: Implementation**
+        - ⬜️ Explain your decision-making as you implement. When you declare things like sets, explain what the purpose is.
+        - ⬜️ Write clean code that conforms to your programming language's conventions.
+        - ⬜️ Avoid writing duplicate code - use a helper function or for loop if you are writing similar code multiple times.
+        - ⬜️ If you are stuck, don't panic - communicate your concerns with your interviewer.
+        - ⬜️ Don't be scared to start with a brute force solution (while acknowledging that it is brute force), then improve it by optimizing the "slow" parts.
+        - ⬜️ Keep thinking out loud and talk with your interviewer. It makes it easier for them to give you hints.
+    - ⬜️ **Stage 5: Testing & debugging**
+        - ⬜️ When walking through test cases, keep track of the variables by writing at the bottom of the file, and continuously update them. Condense trivial parts like creating a prefix sum to save time.
+        - ⬜️ If there are errors and the environment supports running code, put print statements in your algorithm and walk through a small test case, comparing the expected value of variables and the actual values.
+        - ⬜️ Be vocal and keep talking with your interviewer if you run into any problems.
+    - ⬜️ **Stage 6: Explanations and follow-ups**
+        - ⬜️ Questions you should be prepared to answer:
+            - ⬜️ Time and space complexity, average and worst case.
+            - ⬜️ Why did you choose this data structure, algorithm, or logic?
+            - ⬜️ Do you think the algorithm could be improved in terms of complexity? If they ask you this, then the answer is _usually_ yes, especially if your algorithm is slower than O(n)_O_(_n_).
+    - ⬜️ **Stage 7: Outro**
+        - ⬜️ Have questions regarding the company prepared.
+        - ⬜️ Be interested, smile, and ask follow-up questions to your interviewer's responses.
