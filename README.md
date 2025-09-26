@@ -1,2 +1,2 @@
 # CodeSolving
-Code solving for cool peeps
+Code solving for cool peeps.
