@@ -345,9 +345,9 @@ LeetCode CheatSheet [source](https://leetcode.com/explore/interview/card/leetcod
     - ⬜️ **Stage 7: Outro**
         - ⬜️ Have questions regarding the company prepared.
         - ⬜️ Be interested, smile, and ask follow-up questions to your interviewer's responses.
-- ## Topics
-	- ### Arrays and Strings
-		- ### INTRODUCTION
+- ## ⬜️ Topics
+	- ### ⬜️ Arrays and Strings
+		- ### ⬜️ INTRODUCTION
 			- In terms of algorithm problems, arrays (1D) and strings are very similar: they both represent an ordered group of elements. Most algorithm problems will include either an array or string as part of the input, so it's important to be comfortable with the basic operations and to learn the most common patterns.
 			- "Array" can mean something different between languages. For example, Python primarily uses "lists" instead of arrays which are extremely lenient. Initialization is as easy as `arr = []`, and you don't need to worry about the type of data you store in the list or the size of the list. Other languages like C++ require you to specify the size and data type of the array during initialization, but also have support for lists (like `std::vector` in C++).
 				- """Technically, an array can't be resized. A dynamic array, or list, can be. In the context of algorithm problems, usually when people talk about arrays, they are referring to dynamic arrays. **In this entire course, we will be talking about dynamic arrays/lists, but we will just use the word "array".** """
@@ -358,7 +358,7 @@ LeetCode CheatSheet [source](https://leetcode.com/explore/interview/card/leetcod
 			- As mentioned before, a majority of algorithm problems will involve an array or string. They are extremely versatile data structures and it's impossible to list all the relevant problem-solving techniques in one article. In the next few articles, we'll go over the most common techniques. But first, let's take a quick look at the time complexity of array and string operations.
 			- ![time complexity chart for arrays and strings](https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-data-structures-and-algorithms/703/arraystrings/Figures/DSA/Chapter_1/1_1.png)
 			- Appending to the end of a list is [amortized O(1)](https://stackoverflow.com/questions/33044883/why-is-the-time-complexity-of-pythons-list-append-method-o1).
-		- #### Two pointers
+		- #### ⬜️ Two pointers
 			- ✅ Two pointers is an extremely common technique used to solve array and string problems. 
 				- ✅ It involves having two integer variables that both move along an iterable. 
 				- ✅ In this article, we are focusing on arrays and strings. 
@@ -417,36 +417,21 @@ LeetCode CheatSheet [source](https://leetcode.com/explore/interview/card/leetcod
 					- To run the algorithm until the pointers meet each other, we can use a while loop. Each iteration in the while loop checks one pair. If the check is successful, we increment `left` and decrement `right` to move to the next pair. If the check is unsuccessful, we return false.
 					- Notice that if the input was an array of characters instead of a string, the algorithm wouldn't change. The two pointers technique works as long as the index variables are moving along some abstract iterable.
 					- This algorithm is very efficient as not only does it run in O(n)O(n), but it also uses only O(1)O(1) space. No matter how big the input is, we always only use two integer variables. The time complexity is O(n)O(n) because the while loop iterations cost O(1)O(1) each, and there can never be more than O(n)O(n) iterations of the while loop - the pointers start at a distance of nn from each other and move closer by one step each iteration.
-				- Example 2: 
+				- ⬜️ Example 2: 
 					- Given a **sorted** array of unique integers and a target integer, return `true` if there exists a pair of numbers that sum to target, `false` otherwise. This problem is similar to [Two Sum](https://leetcode.com/problems/two-sum/). (In Two Sum, the input is not sorted).
 					- For example, given `nums = [1, 2, 4, 6, 8, 9, 14, 15]` and `target = 13`, return true because `4 + 9 = 13`.
 					- Note: a similar version of this problem can be found on LeetCode: [167. Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/)
 					- The brute force solution would be to iterate over all pairs of integers. Each number in the array can be paired with another number, so this would result in a time complexity of $O(n^2)$, where $n$ is the length of the array. Because the array is sorted, we can use two pointers to improve to an $O(n)$ time complexity.
-
-Let's use the example input. With two pointers, we start by looking at the first and last numbers. Their sum is `1 + 15 = 16`. Because `16 > target`, we need to make our current sum smaller. Therefore, we should move the `right` pointer. Now, we have `1 + 14 = 15`. Again, move the right pointer because the sum is too large. Now, `1 + 9 = 10`. Since the sum is too small, we need to make it bigger, which can be done by moving the `left` pointer. `2 + 9 = 11 < target`, so move it again. Finally, `4 + 9 = 13 = target`.
-
-The reason this algorithm works: because the numbers are sorted, moving the left pointer permanently increases the value the left pointer points to (`nums[left] = x`). Similarly, moving the right pointer permanently decreases the value the right pointer points to (`nums[right] = y`). If we have `x + y > target`, then we can never have a solution with `y` because `x` can only increase. So if a solution exists, we can only find it by decreasing `y`. The same logic can be applied to `x` if `x + y < target`.
-
-**Click here for a more detailed explanation if needed**
-
-Let's say we have `nums = [3, 6, 21, 23, 25]` and `target = 27`. We need to pick two numbers that sum to `target`. Using the two pointers technique, we start with the first and last numbers. Because the input is sorted, this is the smallest and largest number. We have `3 + 25 = 28`, which is greater than `target`.
-
-Let's look at the `25`. We paired this number with the smallest number, and the sum was **still** too large. That implies that the `25` could never be part of the answer because if we chose any number other than the `3` to pair it with, the sum would be even larger. Since it can't be part of the answer, we move on to the next largest number, which is `23`.
-
-Now, we have `3 + 23 = 26`. This is smaller than `target`. In the previous step, we determined that the `25` could never be part of the answer. This makes the `23` the new "largest" number. Despite pairing the `3` with the largest number, the sum is **still** too small. This implies that the `3` could never be part of the answer because if we chose any of the other remaining numbers (the `6` or `21`), the sum would be even smaller. Since it can't be part of the answer, we move on to the next smallest number, which is `6`.
-
-Now, we have `6 + 23 = 29`. Once again, our sum is too large. We apply the same logic as before - the `23` could never be part of the answer because we are already pairing it with the smallest number (that we haven't already ruled out), yet the sum is still too large. So we move to the next largest number, which is the `21`.
-
-Finally, we have `6 + 21 = 27`, and we have found our target.
-
-To implement this algorithm, we use a similar process as in the previous palindrome example. We use a while loop until the pointers meet each other. If at any point the sum is equal to the `target`, we can return true. If the pointers meet each other, it means we went through the entire input without finding `target`, so we return false.
-
-  
-
-Like in the previous example, this algorithm uses O(1)O(1) space and has a time complexity of O(n)O(n).
-
----
-
+					- Let's use the example input. With two pointers, we start by looking at the first and last numbers. Their sum is `1 + 15 = 16`. Because `16 > target`, we need to make our current sum smaller. Therefore, we should move the `right` pointer. Now, we have `1 + 14 = 15`. Again, move the right pointer because the sum is too large. Now, `1 + 9 = 10`. Since the sum is too small, we need to make it bigger, which can be done by moving the `left` pointer. `2 + 9 = 11 < target`, so move it again. Finally, `4 + 9 = 13 = target`.
+					- The reason this algorithm works: because the numbers are sorted, moving the left pointer permanently increases the value the left pointer points to (`nums[left] = x`). Similarly, moving the right pointer permanently decreases the value the right pointer points to (`nums[right] = y`). If we have `x + y > target`, then we can never have a solution with `y` because `x` can only increase. So if a solution exists, we can only find it by decreasing `y`. The same logic can be applied to `x` if `x + y < target`.
+				- **Click here for a more detailed explanation if needed**
+					- Let's say we have `nums = [3, 6, 21, 23, 25]` and `target = 27`. We need to pick two numbers that sum to `target`. Using the two pointers technique, we start with the first and last numbers. Because the input is sorted, this is the smallest and largest number. We have `3 + 25 = 28`, which is greater than `target`.
+					- Let's look at the `25`. We paired this number with the smallest number, and the sum was **still** too large. That implies that the `25` could never be part of the answer because if we chose any number other than the `3` to pair it with, the sum would be even larger. Since it can't be part of the answer, we move on to the next largest number, which is `23`.
+					- Now, we have `3 + 23 = 26`. This is smaller than `target`. In the previous step, we determined that the `25` could never be part of the answer. This makes the `23` the new "largest" number. Despite pairing the `3` with the largest number, the sum is **still** too small. This implies that the `3` could never be part of the answer because if we chose any of the other remaining numbers (the `6` or `21`), the sum would be even smaller. Since it can't be part of the answer, we move on to the next smallest number, which is `6`.
+					- Now, we have `6 + 23 = 29`. Once again, our sum is too large. We apply the same logic as before - the `23` could never be part of the answer because we are already pairing it with the smallest number (that we haven't already ruled out), yet the sum is still too large. So we move to the next largest number, which is the `21`.
+					- Finally, we have `6 + 21 = 27`, and we have found our target.
+					- To implement this algorithm, we use a similar process as in the previous palindrome example. We use a while loop until the pointers meet each other. If at any point the sum is equal to the `target`, we can return true. If the pointers meet each other, it means we went through the entire input without finding `target`, so we return false.
+					- Like in the previous example, this algorithm uses $O(1)$ space and has a time complexity of $O(n)$.
 ### Another way to use two pointers
 
 This method where we start the pointers at the first and last indices and move them towards each other is only one way to implement two pointers. Algorithms are beautiful because of how abstract they are - "two pointers" is just an idea, and it can be implemented in many different ways. Let's look at another method and some new examples. The following method is applicable when the problem has two iterables in the input, for example, two arrays.
