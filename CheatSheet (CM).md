@@ -3,15 +3,16 @@ This is your new *vault*.
 Make a note of something, [[create a link]], or try [the Importer](https://help.obsidian.md/Plugins/Importer)!
 
 When you're ready, delete this note and make the vault your own.
+LeetCode CheatSheet [source](https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-data-structures-and-algorithms/713/interviews-and-tools/4547/)
 
 - ### ⬜️ Time complexity (Big O) cheat sheet
     
     - ![](https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-data-structures-and-algorithms/713/interviews-and-tools/Figures/DSA/Chapter_11/big_o.png "big O chart")
     - ⬜️ Complexity of common operations split by...
         - ⬜️ data structure/algorithms...
-            - ⬜️ **Arrays (dynamic array / list)**
-                - ⬜️ Given `n = arr.length`,
-                    - ⬜️ Add or remove element at the end: 
+            - ❓ **Arrays (dynamic array / list)**
+                - ❓ Given `n = arr.length`,
+                    - ❤️❓ Add or remove element at the end: 
                         - ❤️❓ O(1) [amortized](https://stackoverflow.com/questions/33044883/why-is-the-time-complexity-of-pythons-list-append-method-o1)
                             - ❓ "It's amortized O(1) time complexity, not literally O(1)"
                                 - ✅ Let's say the list reserved size is 8 elements and it doubles in size when space runs out.
@@ -115,17 +116,21 @@ When you're ready, delete this note and make the vault your own.
                                 - ❤️ If we _amortize_ that per element, it's O(n)/n = O(1).
                             - ⬜️ What does amortized mean?
                                 - ⬜️ To pay off a debt gradually over a set period with regular payments that cover both principal and interest, or to gradually write off the cost of an intangible asset by expensing it over its useful life
+							- ❓Why would removing an element from the end of an array still be amortized? are we resizing to make the array smaller as well? 
                     - ✅ Add or remove element from arbitrary index: 
                         - O(n)
                     - ✅ Access or modify element at arbitrary index: 
                         - O(1)
                     - ✅ Check if element exists: 
                         - O(n)
-                    - ⬜️ Two pointers: 
-                        - $O(n⋅k)$, where $k$ is the work done at each iteration, includes sliding window
-                    - ⬜️ Building a prefix sum: 
-                        - O(n)
-                    - ⬜️ Finding the sum of a subarray given a prefix sum: 
+                    - ✅ Two pointers: 
+                        - ✅ $O(n⋅k)$, where $k$ is the work done at each iteration, includes sliding window
+                    - ❓ Building a prefix sum: 
+                        - ❓Hint / Example of prefix sum: 
+	                        - ❓
+                        - Answer:
+	                        - O(n)
+                    - ❓ Finding the sum of a subarray given a prefix sum: 
                         - O(1)
             - ⬜️ **Strings (immutable)**
                 - ⬜️ Given ,
