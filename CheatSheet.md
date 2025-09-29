@@ -4,10 +4,10 @@ Make a note of something, [[create a link]], or try [the Importer](https://help.
 
 When you're ready, delete this note and make the vault your own.
 
-- ### Time complexity (Big O) cheat sheet
+- ### ⬜️ Time complexity (Big O) cheat sheet
     
     - ![](https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-data-structures-and-algorithms/713/interviews-and-tools/Figures/DSA/Chapter_11/big_o.png "big O chart")
-    - Complexity of common operations split by...
+    - ⬜️ Complexity of common operations split by...
         - ⬜️ data structure/algorithms...
             - ⬜️ **Arrays (dynamic array / list)**
                 - ⬜️ Given ,
