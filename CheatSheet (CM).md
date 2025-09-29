@@ -380,45 +380,48 @@ LeetCode CheatSheet [source](https://leetcode.com/explore/interview/card/leetcod
 					
 					    while left < right:
 					        Do some logic here depending on the problem
-					        Do some more logic here to decide on one of the following:
+					        Do some more logic to decide one of the following:
 					            1. left++
 					            2. right--
 					            3. Both left++ and right--
 					```
-			- The strength of this technique is that we will never have more than O(n) iterations for the while loop because the pointers start n away from each other and move at least one step closer in every iteration. 
-			- Therefore, if we can keep the work inside each iteration at O(1), this technique will result in 
-				- a linear runtime, which is usually the best possible runtime. 
+			- ✅ The strength of this technique is that 
+				- ✅ we will never have more than O(n) iterations for the while loop because 
+					- ✅ the pointers start n away from each other and 
+					- ✅ move at least one step closer in every iteration. 
+			- ✅ Therefore, if we can keep the work inside each iteration at O(1), this technique will result in 
+				- ✅ a linear runtime, which is usually the best possible runtime. 
 			- Let's look at some examples.
-				- Example 1: 
-					- ```Given a string `s`, return `true` if it is a palindrome, `false` otherwise. A string is a palindrome if it reads the same forward as backward. That means, after reversing it, it is still the same string. For example: "abcdcba", or "racecar".```
-				- After reversing a string, 
-					- the first character becomes the last character. 
-					- If a string is the same after being reversed, that means the first character is the same as the last character, the second character is the same as the second last character, and so on. 
-					- We can use the two pointers technique here to check that all corresponding characters are equal. 
-					- To start, we check the first and last characters using two separate pointers. 
-					- To check the next pair of characters, we just need to move our pointers toward each other one position. 
-					- We continue until the pointers meet each other or we find a mismatch.
-				- **Click here for a more detailed explanation if needed**
-					- We keep track of two indices: a left one, and a right one. In the beginning, the left index points to the first character, and the right index points to the last character. If these characters are not equal to each other, we know the string can't be a palindrome, so we return false. Otherwise, the string may be a palindrome; we need to check the next pair. To move on to the next pair, we move the left index forward by one, and the right index backward by one. Again, we check if the pair of characters are equal, and if they aren't, we return false.
-					- We continue this process until we either find a mismatch (in which case the string cannot be a palindrome, so we return false), or the pointers meet each other (which indicates we have gone through the entire string, checking all pairs). If we get through all pairs without a mismatch, we know the string is a palindrome, so we can return true.
-	
-	To run the algorithm until the pointers meet each other, we can use a while loop. Each iteration in the while loop checks one pair. If the check is successful, we increment `left` and decrement `right` to move to the next pair. If the check is unsuccessful, we return false.
-
-  
-
-Notice that if the input was an array of characters instead of a string, the algorithm wouldn't change. The two pointers technique works as long as the index variables are moving along some abstract iterable.
-
-This algorithm is very efficient as not only does it run in O(n)O(n), but it also uses only O(1)O(1) space. No matter how big the input is, we always only use two integer variables. The time complexity is O(n)O(n) because the while loop iterations cost O(1)O(1) each, and there can never be more than O(n)O(n) iterations of the while loop - the pointers start at a distance of nn from each other and move closer by one step each iteration.
-
----
-
-> Example 2: Given a **sorted** array of unique integers and a target integer, return `true` if there exists a pair of numbers that sum to target, `false` otherwise. This problem is similar to [Two Sum](https://leetcode.com/problems/two-sum/). (In Two Sum, the input is not sorted).
-> 
-> For example, given `nums = [1, 2, 4, 6, 8, 9, 14, 15]` and `target = 13`, return true because `4 + 9 = 13`.
-> 
-> Note: a similar version of this problem can be found on LeetCode: [167. Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/)
-
-The brute force solution would be to iterate over all pairs of integers. Each number in the array can be paired with another number, so this would result in a time complexity of O(n2)O(n2), where nn is the length of the array. Because the array is sorted, we can use two pointers to improve to an O(n)O(n) time complexity.
+				- ✅ Example 1: 
+					- ✅ ```Given a string `s`, return `true` if it is a palindrome, `false` otherwise. A string is a palindrome if it reads the same forward as backward. That means, after reversing it, it is still the same string. For example: "abcdcba", or "racecar".```
+					- ✅ After reversing a string, 
+						- ✅ the first character becomes the last character. 
+						- ✅ If a string is the same after being reversed, that means 
+							- ✅ the first character is the same as the last character, 
+							- ✅ the second character is the same as the second last character, and 
+							- ✅ so on. 
+						- ✅ We can use the two pointers technique here to check that all corresponding characters are equal. 
+						- ✅ To start, we check the first and last characters using two separate pointers. 
+						- ✅ To check the next pair of characters, we just need to move our pointers toward each other one position. 
+						- ✅ We continue until the pointers meet each other or we find a mismatch.
+					- **Click here for a more detailed explanation if needed**
+						- We keep track of two indices: 
+							- a left one, and a right one. 
+							- In the beginning, the left index points to the first character, and the right index points to the last character. 
+							- If these characters are not equal to each other, we know the string can't be a palindrome, so we return false. 
+							- Otherwise, the string may be a palindrome; we need to check the next pair. 
+							- To move on to the next pair, we move the left index forward by one, and the right index backward by one. 
+							- Again, we check if the pair of characters are equal, and if they aren't, we return false.
+						- We continue this process until we either find a mismatch (in which case the string cannot be a palindrome, so we return false), or the pointers meet each other (which indicates we have gone through the entire string, checking all pairs). 
+							- If we get through all pairs without a mismatch, we know the string is a palindrome, so we can return true.
+					- To run the algorithm until the pointers meet each other, we can use a while loop. Each iteration in the while loop checks one pair. If the check is successful, we increment `left` and decrement `right` to move to the next pair. If the check is unsuccessful, we return false.
+					- Notice that if the input was an array of characters instead of a string, the algorithm wouldn't change. The two pointers technique works as long as the index variables are moving along some abstract iterable.
+					- This algorithm is very efficient as not only does it run in O(n)O(n), but it also uses only O(1)O(1) space. No matter how big the input is, we always only use two integer variables. The time complexity is O(n)O(n) because the while loop iterations cost O(1)O(1) each, and there can never be more than O(n)O(n) iterations of the while loop - the pointers start at a distance of nn from each other and move closer by one step each iteration.
+				- Example 2: 
+					- Given a **sorted** array of unique integers and a target integer, return `true` if there exists a pair of numbers that sum to target, `false` otherwise. This problem is similar to [Two Sum](https://leetcode.com/problems/two-sum/). (In Two Sum, the input is not sorted).
+					- For example, given `nums = [1, 2, 4, 6, 8, 9, 14, 15]` and `target = 13`, return true because `4 + 9 = 13`.
+					- Note: a similar version of this problem can be found on LeetCode: [167. Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/)
+					- The brute force solution would be to iterate over all pairs of integers. Each number in the array can be paired with another number, so this would result in a time complexity of $O(n^2)$, where $n$ is the length of the array. Because the array is sorted, we can use two pointers to improve to an $O(n)$ time complexity.
 
 Let's use the example input. With two pointers, we start by looking at the first and last numbers. Their sum is `1 + 15 = 16`. Because `16 > target`, we need to make our current sum smaller. Therefore, we should move the `right` pointer. Now, we have `1 + 14 = 15`. Again, move the right pointer because the sum is too large. Now, `1 + 9 = 10`. Since the sum is too small, we need to make it bigger, which can be done by moving the `left` pointer. `2 + 9 = 11 < target`, so move it again. Finally, `4 + 9 = 13 = target`.
 
