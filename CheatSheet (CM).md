@@ -3,17 +3,18 @@ This is your new *vault*.
 Make a note of something, [[create a link]], or try [the Importer](https://help.obsidian.md/Plugins/Importer)!
 
 When you're ready, delete this note and make the vault your own.
+LeetCode CheatSheet [source](https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-data-structures-and-algorithms/713/interviews-and-tools/4547/)
 
-- ### Time complexity (Big O) cheat sheet
+- ### ⬜️ Time complexity (Big O) cheat sheet
     
     - ![](https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-data-structures-and-algorithms/713/interviews-and-tools/Figures/DSA/Chapter_11/big_o.png "big O chart")
-    - Complexity of common operations split by...
+    - ⬜️ Complexity of common operations split by...
         - ⬜️ data structure/algorithms...
-            - ⬜️ **Arrays (dynamic array / list)**
-                - ⬜️ Given ,
-                    - ⬜️ Add or remove element at the end: 
-                        - ❤️ O(1) [amortized](https://stackoverflow.com/questions/33044883/why-is-the-time-complexity-of-pythons-list-append-method-o1)
-                            - ⬜️ "It's amortized O(1) time complexity, not literally O(1)"
+            - ❓ **Arrays (dynamic array / list)**
+                - ❓ Given `n = arr.length`,
+                    - ❤️❓ Add or remove element at the end: 
+                        - ❤️❓ O(1) [amortized](https://stackoverflow.com/questions/33044883/why-is-the-time-complexity-of-pythons-list-append-method-o1)
+                            - ❓ "It's amortized O(1) time complexity, not literally O(1)"
                                 - ✅ Let's say the list reserved size is 8 elements and it doubles in size when space runs out.
                                 - ⬜️ You want to push 50 elements.
                                 - ⬜️ The first 8 elements push in O(1).
@@ -23,24 +24,113 @@ When you're ready, delete this note and make the vault your own.
                                 - ✅ The next 15 push in O(1).
                                 - ⬜️ The thirty-third triggers reallocation and 32 copies, followed by an O(1) push.
                                 - ✅ The next 31 push in O(1).
-                                - ⬜️ This continues as the size of list is doubled again at pushing the 65th, 129th, 257th element, etc..
-                                - ⬜️ So all of the pushes have O(1) complexity, we had 64 copies at O(1), and 3 reallocations at O(n), with n = 8, 16, and 32.
-                                - ⬜️ Note that this is a geometric series and asymptotically equals O(n) with n = the final size of the list.
-                                - ⬜️ That means the whole operation of pushing n objects onto the list is O(n).
+                                - ✅ This continues as the size of list is doubled again at pushing the 65th, 129th, 257th element, etc..
+                                - ✅ So all of the pushes have O(1) complexity, we had 
+	                                - 64 copies at O(1), and 
+	                                - 3 reallocations at O(n), with 
+		                                - n = 8, 16, and 32.
+                                - ❓ Note that this is a **geometric series** and asymptotically equals O(n) with n = the final size of the list.
+									- ❓ What is a geometric series?
+											- A **geometric sequence** is a sequence where each term is obtained by multiplying the previous term by a fixed ratio rrr. [Wikipedia+1](https://en.wikipedia.org/wiki/Geometric_progression?utm_source=chatgpt.com)  
+											    So if the first term is aaa, the terms are
+											    
+											    a,  ar,  ar2,  ar3,  …a,\; ar,\; ar^2,\; ar^3,\; \dotsa,ar,ar2,ar3,…
+											- A **geometric series** is the _sum_ of the terms of a geometric sequence.  
+											    So you write:
+											    
+											    a+ar+ar2+ar3+⋯a + ar + ar^2 + ar^3 + \cdotsa+ar+ar2+ar3+⋯
+											
+											---
+											
+											## Finite geometric series
+											
+											If you sum up to nnn terms (from term 0 up to term nnn), the partial sum is:
+											
+											Sn=a+ar+ar2+⋯+arn=∑k=0nark.S_n = a + ar + ar^2 + \cdots + ar^n = \sum_{k=0}^n a r^k.Sn​=a+ar+ar2+⋯+arn=k=0∑n​ark.
+											
+											When r≠1r \neq 1r=1, there is a standard closed-form:
+											
+											Sn=a⋅1−r n+11−r.r≠1(if )S_n = a \cdot \frac{1 - r^{\,n+1}}{1 - r}. \tag{if } r \neq 1Sn​=a⋅1−r1−rn+1​.r=1(if )
+											
+											If r=1r=1r=1, then each term is just aaa, so summing n+1n+1n+1 terms gives Sn=a(n+1)S_n = a (n+1)Sn​=a(n+1). [ChiliMath+3Wikipedia+3Lumen Learning+3](https://en.wikipedia.org/wiki/Geometric_series?utm_source=chatgpt.com)
+											
+											---
+											
+											## Infinite geometric series & convergence
+											
+											If you let n→∞n \to \inftyn→∞, you get an **infinite geometric series**:
+											
+											a+ar+ar2+ar3+⋯=∑k=0∞ark.a + ar + ar^2 + ar^3 + \cdots = \sum_{k=0}^\infty a r^k.a+ar+ar2+ar3+⋯=k=0∑∞​ark.
+											
+											This infinite sum **converges** (i.e. has a finite value) **if and only if** ∣r∣<1\lvert r \rvert < 1∣r∣<1. [Wikipedia+3Wikipedia+3Lumen Learning+3](https://en.wikipedia.org/wiki/Geometric_series?utm_source=chatgpt.com)
+											
+											In that case, since rn+1→0r^{n+1} \to 0rn+1→0 as n→∞n \to \inftyn→∞, the formula becomes:
+											
+											S=lim⁡n→∞Sn=lim⁡n→∞a1−r n+11−r=a1−r.S = \lim_{n\to\infty} S_n = \lim_{n\to\infty} a \frac{1 - r^{\,n+1}}{1 - r} = \frac{a}{1 - r}.S=n→∞lim​Sn​=n→∞lim​a1−r1−rn+1​=1−ra​.
+											
+											If ∣r∣≥1\lvert r \rvert \ge 1∣r∣≥1, the series **diverges** — it does not sum to a finite number. [Wikipedia+2Wikipedia+2](https://en.wikipedia.org/wiki/Geometric_series?utm_source=chatgpt.com)
+											
+											---
+											
+											## Examples
+											
+											1. **Convergent infinite series**
+											    
+											    1+12+14+18+⋯1 + \tfrac12 + \tfrac14 + \tfrac18 + \cdots1+21​+41​+81​+⋯
+											    
+											    Here a=1a = 1a=1, r=12r = \tfrac12r=21​. Since ∣r∣=12<1\lvert r \rvert = \tfrac12 < 1∣r∣=21​<1, it converges. The sum is
+											    
+											    11−12=2.\frac{1}{1 - \tfrac12} = 2.1−21​1​=2.
+											2. **Divergent series**
+											    
+											    2+4+8+16+⋯2 + 4 + 8 + 16 + \cdots2+4+8+16+⋯
+											    
+											    Here a=2a = 2a=2, r=2r = 2r=2. Since ∣r∣=2>1\lvert r \rvert = 2 > 1∣r∣=2>1, the series diverges — it grows without bound.
+											    
+											1. **Finite sum example**  
+											    Sum the first 5 terms of 3+6+12+24+483 + 6 + 12 + 24 + 483+6+12+24+48.  
+											    Here a=3a = 3a=3, r=2r = 2r=2, and n=4n = 4n=4 (since term 0 through term 4).  
+											    Use:
+											    
+											    S4=31−251−2=31−32−1=3⋅31=93.S_4 = 3 \frac{1 - 2^{5}}{1 - 2} = 3 \frac{1 - 32}{-1} = 3 \cdot 31 = 93.S4​=31−21−25​=3−11−32​=3⋅31=93.
+											
+											---
+											
+											## Key takeaways & warnings
+											
+											- Always check the **common ratio** rrr. That’s the linchpin for convergence.
+											    
+											- The infinite sum formula a1−r\frac{a}{1-r}1−ra​ is only valid when ∣r∣<1\lvert r \rvert < 1∣r∣<1.
+											    
+											- If ∣r∣≥1\lvert r \rvert \ge 1∣r∣≥1, the infinite series diverges (unless one is doing some advanced summation techniques beyond standard real analysis). [Wikipedia+1](https://en.wikipedia.org/wiki/Divergent_geometric_series?utm_source=chatgpt.com)
+											    
+											- Be careful with negative rrr: alternating signs can complicate things, but the same convergence rule ∣r∣<1\lvert r \rvert < 1∣r∣<1 applies.
+											    
+											
+											---
+											
+											If you want, I can walk through geometric series in a programming or algorithmic context (how to sum them efficiently, error bounds, etc.), or show proofs. Do you want me to go further in one of those directions?
+                                - ⬜️ That means 
+	                                - the whole operation of pushing n objects onto the list is 
+		                                - O(n).
                                 - ❤️ If we _amortize_ that per element, it's O(n)/n = O(1).
                             - ⬜️ What does amortized mean?
                                 - ⬜️ To pay off a debt gradually over a set period with regular payments that cover both principal and interest, or to gradually write off the cost of an intangible asset by expensing it over its useful life
+							- ❓Why would removing an element from the end of an array still be amortized? are we resizing to make the array smaller as well? 
                     - ✅ Add or remove element from arbitrary index: 
                         - O(n)
                     - ✅ Access or modify element at arbitrary index: 
                         - O(1)
                     - ✅ Check if element exists: 
                         - O(n)
-                    - ⬜️ Two pointers: 
-                        - $$O(n⋅k)$$, where $$k$$ is the work done at each iteration, includes sliding window
-                    - ⬜️ Building a prefix sum: 
-                        - O(n)
-                    - ⬜️ Finding the sum of a subarray given a prefix sum: 
+                    - ✅ Two pointers: 
+                        - ✅ $O(n⋅k)$, where $k$ is the work done at each iteration, includes sliding window
+                    - ❓ Building a prefix sum: 
+                        - ❓Hint / Example of prefix sum: 
+	                        - ❓
+                        - Answer:
+	                        - O(n)
+                    - ❓ Finding the sum of a subarray given a prefix sum: 
                         - O(1)
             - ⬜️ **Strings (immutable)**
                 - ⬜️ Given ,
