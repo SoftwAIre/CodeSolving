@@ -149,20 +149,25 @@ LeetCode CheatSheet [source](https://leetcode.com/explore/interview/card/leetcod
                         - $O(n)$
             - ⬜️ **Linked Lists**
                 - ⬜️ Given $n$ as the number of nodes in the linked list,
-                    - ⬜️ Add or remove element given pointer before add/removal location: 
+                    - ✅ Add or remove element given pointer before add/removal location: 
 	                    - $O(1)$
-                    - ⬜️ Add or remove element given pointer at add/removal location: 
+                    - ✅ Add or remove element given pointer at add/removal location: 
                         - $O(1)$ if doubly linked
-                    - ⬜️ Add or remove element at arbitrary position without pointer: 
+	                        - ✅ else it doesn't matter that you're at the add/removal location because you'd have to start at the linked list's head
+                    - ✅ Add or remove element at arbitrary position without pointer: 
                         - $O(n)$
-                    - ⬜️ Access element at arbitrary position without pointer: 
+                    - ✅ Access element at arbitrary position without pointer: 
                         - $O(n)$
-                    - ⬜️ Check if element exists: 
+                    - ✅ Check if element exists: 
                         - $O(n)$
-                    - ⬜️ Reverse between position  and : 
+                    - ⬜️ Reverse between position `i` and  `j`: 
                         - $O(j−i)$
                     - ⬜️ Detect a cycle: 
                         - $O(n)$ using fast-slow pointers or hash map
+	                        - Fast-Slow Pointers example
+		                        - how do you use fast-slow pointers? this seems way slower than $O(n)$
+							- Hash Map example
+								- this makes more sense but holds more memory, obviously
             - ⬜️ **Hash table/dictionary**
                 - ⬜️ Given ,
                     - ⬜️ Add or remove key-value pair: 
